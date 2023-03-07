@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image } from 'react-native';
 
 //for customizing start button:
-const StartButton = ({onPress, title}) => (
+const StartButton = ({ onPress, title }) => (
   <TouchableOpacity onPress={onPress} style={styles.btnStart}>
     <Text style={styles.startBtnText}>{title}</Text>
   </TouchableOpacity>
@@ -12,7 +12,17 @@ const StartButton = ({onPress, title}) => (
 export default function App() {
   return (
     <View style={styles.container}>
-   <StartButton title="START"  size = "sm"  ></StartButton>
+      <View style={styles.imageLogo}>
+        <Image
+          style={{width: 102, height: 141, marginBottom: 20,}}
+          source={require('./assets/Union.png')}
+        />
+        <Image
+          source={require('./assets/PassitOn.png')}
+        />
+        <Text style={{marginTop: 15, color: 'gray'}}>Assets Sharing Platform</Text>
+      </View>
+      <StartButton title="Start" size="sm" ></StartButton>
     </View>
   );
 }
@@ -21,29 +31,36 @@ const styles = StyleSheet.create({
   //for main view
   container: {
     flex: 1,
-    backgroundColor:'pink' ,
-    justifyContent: 'center',
-   // padding:16 ,
-    alignContent:'center' ,
-    flexDirection:'column' ,
+    backgroundColor: 'transparent',
+    justifyContent: 'space-between',
+    // padding:16 ,
+    alignContent: 'center',
+    flexDirection: 'column',
+    paddingHorizontal: 25
   },
   //for button
-  btnStart:{
-   elevation: 19,    //means shadow for btn 
-   paddingVertical:10 ,
-   paddingHorizontal:12 ,
-   backgroundColor:'orange' ,
-   borderRadius:68,
-   alignItems:'center',
-   justifyContent: 'center',
-  } ,
+  btnStart: {
+    flex:1,
+    elevation: 19,    //means shadow for btn 
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    backgroundColor: '#21DA8F',
+    borderRadius: 68,
+    alignItems: 'center',
+    justifyContent: 'center',
+    bottom: 100
+  },
   //text in btn
-  startBtnText:{
-    fontSize:25 ,
-    color:'white' ,
-    fontWeight:'bold' ,
-    alignSelf:'center'
-  } ,
-  
- 
+  startBtnText: {
+    fontSize: 25,
+    color: 'white',
+    fontWeight: '600',
+    alignSelf: 'center'
+  },
+
+  imageLogo: {
+    flex:20,
+    alignItems: "center",
+    justifyContent: 'center',
+  },
 });
