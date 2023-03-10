@@ -1,66 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image } from 'react-native';
+import 'react-native-gesture-handler';
 
-//for customizing start button:
-const StartButton = ({ onPress, title }) => (
-  <TouchableOpacity onPress={onPress} style={styles.btnStart}>
-    <Text style={styles.startBtnText}>{title}</Text>
-  </TouchableOpacity>
-);
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
+import { createStackNavigator } from '@react-navigation/stack'; //Insert screens into a stack
+import { NavigationContainer } from '@react-navigation/native'; //contains navigator and screen
+
+import InitialScreen from './src/screens/InitialScreen/InitialScreen';
+import HomeScreen from './src/screens/HomeScreen/HomeScreen';
+
+
+// createStackNavigator is used to create a stack like structure. 
+//Whenever we navigate to a screen, it gets pushed to the stack and whenever we click the back button, 
+//the screen pops off from the top of the stack.
+
+const Stack = createStackNavigator();
+
+// Inside the render function, we have added NavigationContainer components.
+
+// Then we have added the Stack.Navigator component inside the NavigationContainer component.
+// stack.Navigator contains all the screens using stack.Screen component. 
+// It has multiple props. For now, we are using two props i.e. name and component.
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.imageLogo}>
-        <Image
-          style={{width: 102, height: 141, marginBottom: 20,}}
-          source={require('./assets/Union.png')}
+    <NavigationContainer>
+      <Stack.Navigator>
+        {/*Define our routes*/}
+        <Stack.Screen
+          name="Initial"
+          component={InitialScreen}
         />
-        <Image
-          source={require('./assets/PassitOn.png')}
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
         />
-        <Text style={{marginTop: 15, color: 'gray'}}>Assets Sharing Platform</Text>
-      </View>
-      <StartButton title="Start" size="sm" ></StartButton>
-    </View>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  //for main view
-  container: {
-    flex: 1,
-    backgroundColor: 'transparent',
-    justifyContent: 'space-between',
-    // padding:16 ,
-    alignContent: 'center',
-    flexDirection: 'column',
-    paddingHorizontal: 25
-  },
-  //for button
-  btnStart: {
-    flex:1,
-    elevation: 19,    //means shadow for btn 
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-    backgroundColor: '#21DA8F',
-    borderRadius: 68,
-    alignItems: 'center',
-    justifyContent: 'center',
-    bottom: 100
-  },
-  //text in btn
-  startBtnText: {
-    fontSize: 25,
-    color: 'white',
-    fontWeight: '600',
-    alignSelf: 'center'
-  },
-
-  imageLogo: {
-    flex:20,
-    alignItems: "center",
-    justifyContent: 'center',
-  },
-});
