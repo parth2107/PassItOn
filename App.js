@@ -7,8 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack'; //Insert screens
 import { NavigationContainer } from '@react-navigation/native'; //contains navigator and screen
 
 import InitialScreen from './src/screens/InitialScreen/InitialScreen';
-import HomeScreen from './src/screens/HomeScreen/HomeScreen';
-
+import Route from './src/router';
 
 // createStackNavigator is used to create a stack like structure. 
 //Whenever we navigate to a screen, it gets pushed to the stack and whenever we click the back button, 
@@ -25,15 +24,21 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        {/*Define our routes*/}
+      {/*Define our routes*/}
+      <Stack.Navigator>  
         <Stack.Screen
           name="Initial"
           component={InitialScreen}
+          options={{
+            headerShown: false
+          }}
         />
         <Stack.Screen
-          name="Home"
-          component={HomeScreen}
+          name="Router"
+          component={Route}
+          options={{
+            headerShown: false
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

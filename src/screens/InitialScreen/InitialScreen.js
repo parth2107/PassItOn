@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
+import useRoute from "../../router";
+
 //for customizing start button:
 const StartButton = ({ onPress, title }) => (
     <TouchableOpacity onPress={onPress} style={styles.btnStart}>
@@ -8,7 +10,7 @@ const StartButton = ({ onPress, title }) => (
     </TouchableOpacity>
 );
 
-export default function InitialScreen({navigation}) {
+export default function InitialScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.imageLogo}>
@@ -21,7 +23,7 @@ export default function InitialScreen({navigation}) {
                 />
                 <Text style={{ marginTop: 15, color: 'gray' }}>Assets Sharing Platform</Text>
             </View>
-            <StartButton title="Start" size="sm" onPress={() => navigation.navigate('Home')}></StartButton>
+            <StartButton title="Start" size="sm" onPress={() => navigation.navigate('Router')}></StartButton>
         </View>
     );
 }
