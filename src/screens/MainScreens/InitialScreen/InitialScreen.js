@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
-import useRoute from "../../router";
+import useRoute from "../../../router";
 
 //for customizing start button:
 const StartButton = ({ onPress, title }) => (
@@ -16,10 +16,10 @@ export default function InitialScreen({ navigation }) {
             <View style={styles.imageLogo}>
                 <Image
                     style={{ width: 102, height: 141, marginBottom: 20, }}
-                    source={require('../../../assets/Union.png')}
+                    source={require('../../../../assets/Union.png')}
                 />
                 <Image
-                    source={require('../../../assets/PassitOn.png')}
+                    source={require('../../../../assets/PassitOn.png')}
                 />
                 <Text style={{ marginTop: 15, color: 'gray' }}>Assets Sharing Platform</Text>
             </View>

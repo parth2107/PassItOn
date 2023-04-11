@@ -8,8 +8,8 @@ const Item = ({ item }) => {
 };
 
 export default function HomeScreen() {
-    return(
-      <View style={styles.app}>
+  return (
+    <View style={styles.app}>
       <FlatList
         data={gridItems}
         numColumns={2}
@@ -17,7 +17,7 @@ export default function HomeScreen() {
         keyExtractor={(item) => item.alt}
       />
     </View>
-    );
+  );
 }
 
 const gridItems = [
@@ -25,7 +25,7 @@ const gridItems = [
     icon: (
       <Image
         // style={{ width: 50, height: 50 }}
-        source={require('../../../assets/book.png')}
+        source={require('../../../../assets/book.png')}
       />
     ),
     label: (
@@ -36,7 +36,7 @@ const gridItems = [
     icon: (
       <Image
         // style={{ width: 50, height: 50 }}
-        source={require('../../../assets/note.png')}
+        source={require('../../../../assets/note.png')}
       />
     ),
     label: (
@@ -47,7 +47,7 @@ const gridItems = [
     icon: (
       <Image
         // style={{ width: 50, height: 50 }}
-        source={require('../../../assets/ppt.png')}
+        source={require('../../../../assets/ppt.png')}
       />
     ),
     label: (
@@ -58,7 +58,7 @@ const gridItems = [
     icon: (
       <Image
         // style={{ width: 50, height: 50 }}
-        source={require('../../../assets/stationary.png')}
+        source={require('../../../../assets/stationary.png')}
       />
     ),
     label: (
@@ -68,23 +68,23 @@ const gridItems = [
 ];
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    app: {
-      flex: 4, // the number of columns you want to devide the screen into
-    },
-    item: {
-      flex: 1,
-      maxWidth: "50%", // 100% devided by the number of rows you want
-      alignItems: "center",
-      // my visual styles; not important for the grid
-      padding: 40,
-      backgroundColor: "#ffffff",
-      borderRadius: 10,
-      margin: 10
-    }
-  });
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  app: {
+    flex: 4, // the number of columns you want to devide the screen into
+  },
+  item: {
+    flex: 1,
+    maxWidth: "50%", // 100% devided by the number of rows you want
+    alignItems: "center",
+    // my visual styles; not important for the grid
+    padding: 40,
+    backgroundColor: "#ffffff",
+    borderRadius: 10,
+    margin: 10
+  }
+});
