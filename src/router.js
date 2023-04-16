@@ -43,7 +43,7 @@ export default function UseRoute(isAuth) {
                     name="Registration"
                     component={RegistrationScreen}
                     options={{
-                        headerShown: true,
+                        headerShown: false,
                     }}
                 />
             </AuthStack.Navigator>
