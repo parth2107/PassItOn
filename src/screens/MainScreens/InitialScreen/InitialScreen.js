@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     },
     //text in btn
     btnText: {
-        fontSize: 20,
+        fontSize: 18,
         color: 'white',
         fontWeight: '400',
         alignSelf: 'center'

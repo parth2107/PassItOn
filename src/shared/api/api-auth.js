@@ -30,6 +30,10 @@ export async function signUp(obj) {
     });
 }
 
+export async function signOut() {
+  await db.auth().signOut();
+}
+
 export async function signIn({ email, password }) {
   try {
     await db.auth().signInWithEmailAndPassword(email, password);

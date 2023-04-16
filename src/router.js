@@ -6,6 +6,8 @@ import AddItem from './screens/MainScreens/AddItemScreen/AddItemScreen';
 import LoginScreen from './screens/Auth/LoginScreen/LoginScreen';
 import RegistrationScreen from './screens/Auth/RegistrationScreen/RegistrationScreen';
 import InitialScreen from './screens/MainScreens/InitialScreen/InitialScreen';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { signOut } from './shared/api/api-auth';
 
 // createStackNavigator is used to create a stack like structure. 
 //Whenever we navigate to a screen, it gets pushed to the stack and whenever we click the back button, 
@@ -21,6 +23,18 @@ const AuthStack = createStackNavigator();
 const Tab = createBottomTabNavigator(); // For tabBar
 
 export default function UseRoute(isAuth) {
+
+
+    //for customizing registration button:
+    const LogoutButton = ({ onPress }) => (
+        <TouchableOpacity onPress={onPress} style={{padding:5}}>
+            <Text style={{
+                color: '#153759',
+                fontWeight: '700',
+                fontSize: 16,
+            }}>Logout  </Text>
+        </TouchableOpacity>
+    );
 
     if (!isAuth) {
         return (
@@ -53,8 +67,25 @@ export default function UseRoute(isAuth) {
     return (
         <Tab.Navigator>
             <Tab.Screen
-                name="HomeScreen"
+                name="Home"
                 component={HomeScreen}
+                options={{
+                    headerRight: () => (
+                        <LogoutButton onPress={() => signOut()} />
+                    ),
+                    tabBarIcon: ({ focused }) => {
+                        return (
+                            <View>
+                                <Image
+                                    source={require("../assets/home.png")}
+                                    resizeMode="contain"
+                                    style={{ width: 25 }}
+                                />
+                            </View>
+                        )
+                    },
+                }}
+
             />
             <Tab.Screen
                 name="Add Item"
