@@ -5,6 +5,7 @@ import HomeScreen from '../src/screens/MainScreens/HomeScreen/HomeScreen';
 import AddItem from './screens/MainScreens/AddItemScreen/AddItemScreen';
 import LoginScreen from './screens/Auth/LoginScreen/LoginScreen';
 import RegistrationScreen from './screens/Auth/RegistrationScreen/RegistrationScreen';
+import InitialScreen from './screens/MainScreens/InitialScreen/InitialScreen';
 
 // createStackNavigator is used to create a stack like structure. 
 //Whenever we navigate to a screen, it gets pushed to the stack and whenever we click the back button, 
@@ -24,6 +25,13 @@ export default function UseRoute(isAuth) {
     if (!isAuth) {
         return (
             <AuthStack.Navigator>
+                <AuthStack.Screen
+                    name="Initial"
+                    component={InitialScreen}
+                    options={{
+                        headerShown: false,
+                    }}
+                />
                 <AuthStack.Screen
                     name="Login"
                     component={LoginScreen}

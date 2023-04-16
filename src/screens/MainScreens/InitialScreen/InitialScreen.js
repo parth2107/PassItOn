@@ -3,10 +3,17 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
 import useRoute from "../../../router";
 
-//for customizing start button:
-const StartButton = ({ onPress, title }) => (
-    <TouchableOpacity onPress={onPress} style={styles.btnStart}>
-        <Text style={styles.startBtnText}>{title}</Text>
+//for customizing registration button:
+const RegistrationButton = ({ onPress, title }) => (
+    <TouchableOpacity onPress={onPress} style={styles.btnRegister}>
+        <Text style={styles.btnText}>{title}</Text>
+    </TouchableOpacity>
+);
+
+//for customizing login button:
+const LoginButton = ({ onPress, title }) => (
+    <TouchableOpacity onPress={onPress} style={styles.btnLogin}>
+        <Text style={styles.btnText}>{title}</Text>
     </TouchableOpacity>
 );
 
@@ -23,7 +30,8 @@ export default function InitialScreen({ navigation }) {
                 />
                 <Text style={{ marginTop: 15, color: 'gray' }}>Assets Sharing Platform</Text>
             </View>
-            <StartButton title="Start" size="sm" onPress={() => navigation.navigate('Router')}></StartButton>
+            <RegistrationButton title="Register" size="sm" onPress={() => navigation.navigate('Registration')}></RegistrationButton>
+            <LoginButton title="Login" size="sm" onPress={() => navigation.navigate('Login')}></LoginButton>
         </View>
     );
 }
@@ -40,7 +48,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 25
     },
     //for button
-    btnStart: {
+    btnRegister: {
         flex: 1,
         elevation: 19,    //means shadow for btn 
         paddingVertical: 10,
@@ -49,13 +57,26 @@ const styles = StyleSheet.create({
         borderRadius: 68,
         alignItems: 'center',
         justifyContent: 'center',
-        bottom: 100
+        marginBottom: 20,
+    },
+    //for button
+    btnLogin: {
+        flex: 1,
+        elevation: 19,    //means shadow for btn 
+        paddingVertical: 10,
+        paddingHorizontal: 12,
+        backgroundColor: '#153759',
+        borderRadius: 68,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 70,
+
     },
     //text in btn
-    startBtnText: {
-        fontSize: 25,
+    btnText: {
+        fontSize: 20,
         color: 'white',
-        fontWeight: '600',
+        fontWeight: '400',
         alignSelf: 'center'
     },
 
