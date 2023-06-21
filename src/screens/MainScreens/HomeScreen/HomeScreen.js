@@ -1,26 +1,49 @@
 //important imports
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, FlatList } from 'react-native'; // importing components
+import SubTitle from '../../../shared/components/SubTitle/SubTitle';
 
 // RN Code
-const Item = ({ item }) => {
+const Category = ({ item }) => {
   return <View style={styles.item}>{item.icon}{item.label}</View>;
+};
+
+// RN Code
+const RecentItem = ({ item }) => {
+  return <View style={styles.recent_items}>{item.icon}{item.label}</View>;
 };
 
 export default function HomeScreen() {
   return (
-    <View style={styles.app}>
+    <>
+    <View style={styles.categories}>
       <FlatList
-        data={gridItems}
+        data={categoriesGrid}
         numColumns={2}
-        renderItem={Item}
+        renderItem={Category}
         keyExtractor={(item) => item.alt}
       />
     </View>
+    <View
+        style={{
+          marginHorizontal: 16,
+        }}
+    >
+        <SubTitle text='Recently Added' />
+    </View>
+    <View style={styles.app}>
+      <FlatList
+        data={gridItems}
+        numColumns={3}
+        renderItem={RecentItem}
+        keyExtractor={(item) => item.alt}
+      />
+    </View>
+    </>
   );
 }
 
-const gridItems = [
+const categoriesGrid = [
   {
     icon: (
       <Image
@@ -29,7 +52,7 @@ const gridItems = [
       />
     ),
     label: (
-      <Text style={{ marginTop: 15, color: 'gray' }}>Books</Text>
+      <Text style={{ marginTop: 15, color: '#153759' }}>Books</Text>
     ),
   },
   {
@@ -40,7 +63,7 @@ const gridItems = [
       />
     ),
     label: (
-      <Text style={{ marginTop: 15, color: 'gray' }}>Notes</Text>
+      <Text style={{ marginTop: 15, color: '#153759',  }}>Notes</Text>
     ),
   },
   {
@@ -51,7 +74,7 @@ const gridItems = [
       />
     ),
     label: (
-      <Text style={{ marginTop: 15, color: 'gray' }}>Presentations</Text>
+      <Text style={{ marginLeft: 0, marginTop: 15, color: '#153759' }}>Presentations</Text>
     ),
   },
   {
@@ -62,9 +85,45 @@ const gridItems = [
       />
     ),
     label: (
-      <Text style={{ marginTop: 15, color: 'gray' }}>Stationary</Text>
+      <Text style={{ marginTop: 15, color: '#153759' }}>Stationary</Text>
     ),
   },
+];
+
+const gridItems = [
+  {
+    icon: (
+      <Image
+        // style={{ width: 50, height: 50 }}
+        source={require('../../../../assets/book.png')}
+      />
+    ),
+    label: (
+      <Text style={{ marginTop: 15, color: '#153759' }}>Books</Text>
+    ),
+  },
+  {
+    icon: (
+      <Image
+        // style={{ width: 50, height: 50 }}
+        source={require('../../../../assets/note.png')}
+      />
+    ),
+    label: (
+      <Text style={{ marginTop: 15, color: '#153759',  }}>Notes</Text>
+    ),
+  },
+  {
+    icon: (
+      <Image
+        // style={{ width: 50, height: 50 }}
+        source={require('../../../../assets/ppt.png')}
+      />
+    ),
+    label: (
+      <Text style={{ marginLeft: 0, marginTop: 15, color: '#153759' }}>Presentations</Text>
+    ),
+  }
 ];
 
 const styles = StyleSheet.create({
@@ -72,19 +131,34 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
   },
-  app: {
-    flex: 4, // the number of columns you want to devide the screen into
+  categories: {
+    // flex: 1, // the number of columns you want to devide the screen into
+    margin: 8,
   },
   item: {
     flex: 1,
     maxWidth: "50%", // 100% devided by the number of rows you want
     alignItems: "center",
     // my visual styles; not important for the grid
-    padding: 40,
+    paddingVertical: 55,
     backgroundColor: "#ffffff",
     borderRadius: 10,
-    margin: 10
+    borderWidth: 1,
+    borderColor: 'grey',
+    margin: 8
+  },
+  recent_items: {
+    flex: 1,
+    maxWidth: "50%", // 100% devided by the number of rows you want
+    alignItems: "center",
+    // my visual styles; not important for the grid
+    paddingVertical: 25,
+    backgroundColor: "#ffffff",
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: 'grey',
+    margin: 8
   }
 });

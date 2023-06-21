@@ -118,13 +118,11 @@ export default function RegistrationScreen({ navigation }) {
                     onChangeText={text => handleChangeTextInput(text, "confirmPassword")}
                     secureTextEntryStart={true}
                 />
-                <View style={styles.buttonContainer}>
-                    <SignUpButton
-                        title="Sign up"
-                        size="sm"
-                        onPress={handleSubmit}>
-                    </SignUpButton>
-                </View>
+                <SignUpButton
+                    title="Sign up"
+                    size="sm"
+                    onPress={handleSubmit}>
+                </SignUpButton>
             </View>
             {loading && <Spinner bool="false" size="large" color="grey" />}
             {error && <Notification text={error.message} type="error" />}
@@ -155,6 +153,13 @@ const styles = StyleSheet.create({
         borderRadius: 68,
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    //text in btn
+    btnText: {
+        fontSize: 16,
+        color: "white",
+        fontWeight: "400",
+        alignSelf: "center",
     },
     buttonContainer: {
         marginTop: 40,

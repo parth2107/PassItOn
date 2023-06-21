@@ -1,4 +1,4 @@
 export const initialState = {
-  email: "",
-  password: "",
+  email: "pr@gmail.com",
+  password: "pr@gmail.com",
 };
