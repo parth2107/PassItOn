@@ -1,7 +1,6 @@
 import { View, ActivityIndicator } from "react-native";
 
 export default function Spinner({ bool, size }) {
-
   return (
     <View
       style={{
@@ -17,7 +16,7 @@ export default function Spinner({ bool, size }) {
         width: "100%",
       }}
     >
-      <ActivityIndicator size={size} bool={bool} color='rgb(89, 87, 87)' />
+      <ActivityIndicator size={size} bool={bool} color="rgb(89, 87, 87)" />
     </View>
   );
 }

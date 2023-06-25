@@ -15,7 +15,7 @@ export default function Title({ text, styles }) {
               lineHeight: 35,
               letterSpacing: 0.02,
 
-              color: '#263638',
+              color: "#263638",
             }
       }
     >

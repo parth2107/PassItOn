@@ -15,7 +15,7 @@ export default function SubTitle({ text, styles }) {
               lineHeight: 35,
               letterSpacing: 0.02,
 
-              color: '#153759',
+              color: "#153759",
             }
       }
     >
